@@ -1,0 +1,3 @@
+Not needed currently (standard Gaussian distribution is used)
+
+It could be used if someone wants to create and use a complete own distribution map, but currently a standard distribution is sufficient for testing/simulation and creating an own one is too much effort

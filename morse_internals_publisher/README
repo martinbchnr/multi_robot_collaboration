@@ -1,0 +1,15 @@
+
+Morse provides several services, three of them are highly relevant for monitoring the internal state of MORSE and are supported
+by this node, they are 'simulation', 'communication' and 'time' services.
+See https://www.openrobots.org/morse/doc/latest/user/code/morse.services.html#module-morse.services.communication_services or https://www.openrobots.org/morse/doc/latest/user/supervision_services.html.
+Through the launch file parameters the used functions can be changed as needed. The structure is as follows: "[['function_name', 'parameter1', '...', 'parameter n'], ['function_name2', 'parameter1']]". Parameters are optional, and depend on the particular service. The number of services and the publication frequency may (highly) influene the performance of MORSE. The actual publication frequency depends on MORSE. It might be necessary to make the file executable ('chmod +x morseInternalsPublisher.py')
+
+A launch file for this node could look like this:
+<launch>
+	<node pkg="morse_internals_publisher" type="morseInternalsPublisher.py" name="node_name"  output="screen">
+		<param name="simulation_services" value="[['get_scene_objects']]"/>
+		<param name="communication_services" value="[['distance_and_view', 'robot1', 'robot2']]"/>
+		<param name="time_services" value="[['statistics']]"/>
+		<param name="frequency" value="2"/>
+	</node>
+</launch>

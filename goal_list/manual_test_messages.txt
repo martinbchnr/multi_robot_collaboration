@@ -1,0 +1,14 @@
+Here are two predefined messages, which can be manually published to test the receiving and handling of new detected dirt positions or successfully reached goals:
+(The position can/should be modified and if needed also the trust_value. Everything else id and especially orientation can always be same!)
+##################################################################################################################################################################
+
+
+To publish a detected dirt object, which will be transmitted to goal_list:
+------------------------------------------------------------------------------
+rostopic pub /detected_dirt goal_list/GoalObject '{id: 1, pose: {position: {x: 1, y: 1, z: 0}, orientation: {x: 0, y: 0, z: 0, w: 1}}, trust_value: 100}'
+
+##################################################################################################################################################################
+
+To publish a successfully reached goal, which will be transmitted to goal_list:
+------------------------------------------------------------------------------
+rostopic pub /succeeded_goal goal_list/GoalObject '{id: 1, pose: {position: {x: 1, y: 1, z: 0}, orientation: {x: 0, y: 0, z: 0, w: 1}}, trust_value: 100}'
